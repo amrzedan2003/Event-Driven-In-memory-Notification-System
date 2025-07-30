@@ -1,0 +1,11 @@
+# Compiled class files
+*.class
+
+# Package Files
+*.jar
+
+# Maven
+target/
+
+# VS Code
+.vscode/
