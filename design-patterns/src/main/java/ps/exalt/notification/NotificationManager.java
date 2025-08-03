@@ -115,6 +115,7 @@ public class NotificationManager implements EventPublisher {
         } else {
             System.out.printf("Event published: %s - No subscribers%n", event.getEventType());
         }
+        System.out.println("====================================================================");
     }
 
     /**
