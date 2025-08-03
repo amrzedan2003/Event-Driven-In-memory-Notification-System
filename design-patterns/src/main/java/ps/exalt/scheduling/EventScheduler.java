@@ -7,7 +7,6 @@ import ps.exalt.scheduling.eventTypes.ReminderType;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.UUID;
 
 /**
  * Event Scheduler that handles time-based event triggering
@@ -28,9 +27,7 @@ public class EventScheduler {
      * @param intervalSeconds Interval in seconds
      * @return Task ID for managing the scheduled task
      */
-    public String scheduleHeartbeat(String systemComponent, long intervalSeconds) {
-        String eventId = UUID.randomUUID().toString();
-
+    public void scheduleHeartbeat(String systemComponent, long intervalSeconds) {
         HeartbeatType heartbeatCommand = new HeartbeatType(systemComponent, intervalSeconds, notificationManager);
 
         scheduler.scheduleAtFixedRate(
@@ -39,9 +36,7 @@ public class EventScheduler {
                 intervalSeconds,
                 TimeUnit.SECONDS);
 
-        System.out.printf("Scheduled heartbeat: %s (Task ID: %s)%n", heartbeatCommand.getDescription(), eventId);
-
-        return eventId;
+        System.out.printf("Scheduled heartbeat: %s%n", heartbeatCommand.getDescription());
     }
 
     /**
@@ -51,9 +46,7 @@ public class EventScheduler {
      * @param intervalSeconds Interval in seconds
      * @return Task ID for managing the scheduled task
      */
-    public String scheduleReminder(String reminderText, long intervalSeconds) {
-        String eventId = UUID.randomUUID().toString();
-
+    public void scheduleReminder(String reminderText, long intervalSeconds) {
         ReminderType reminderCommand = new ReminderType(reminderText, intervalSeconds, notificationManager);
 
         scheduler.scheduleAtFixedRate(
@@ -62,9 +55,7 @@ public class EventScheduler {
                 intervalSeconds,
                 TimeUnit.SECONDS);
 
-        System.out.printf("Scheduled reminder: %s (Task ID: %s)%n", reminderCommand.getDescription(), eventId);
-
-        return eventId;
+        System.out.printf("Scheduled reminder: %s%n", reminderCommand.getDescription());
     }
 
     public void start() {
