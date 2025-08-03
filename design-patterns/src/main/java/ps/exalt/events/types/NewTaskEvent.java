@@ -30,7 +30,7 @@ public class NewTaskEvent extends CommonEvent {
 
     @Override
     public String getDescription() {
-        return String.format("New task:\n (%s) assigned to %s \n Description: \n %s", taskName, assignee, description);
+        return String.format("New task: %s \n Assigned to %s \n Description: \n %s", taskName, assignee, description);
     }
 
     /**

@@ -26,7 +26,7 @@ public class EventSubscriber {
                 subscriberName,
                 event.getEventType(),
                 event.getTimestamp());
-        System.out.printf("Event details: %s%n", event.getDescription());
+        System.out.printf("Event details:\n %s%n", event.getDescription());
         System.out.println("---");
     }
 
@@ -40,6 +40,7 @@ public class EventSubscriber {
 
     /**
      * Get all events received by this subscriber
+     * 
      * @return List of received events
      */
     public List<Event> getReceivedEvents() {
@@ -48,6 +49,7 @@ public class EventSubscriber {
 
     /**
      * Get count of received events
+     * 
      * @return Number of events received
      */
     public int getReceivedEventCount() {
