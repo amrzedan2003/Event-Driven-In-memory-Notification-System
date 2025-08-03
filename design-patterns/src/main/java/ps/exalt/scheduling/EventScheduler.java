@@ -68,15 +68,6 @@ public class EventScheduler {
     public void stop() {
         // Shutdown the scheduler
         scheduler.shutdown();
-        try {
-            if (!scheduler.awaitTermination(5, TimeUnit.SECONDS)) {
-                scheduler.shutdownNow();
-            }
-        } catch (InterruptedException e) {
-            scheduler.shutdownNow();
-            Thread.currentThread().interrupt();
-        }
-
         System.out.println("Event Scheduler stopped");
     }
 }
