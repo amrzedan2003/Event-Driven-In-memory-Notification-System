@@ -5,6 +5,7 @@ import ps.exalt.notification.NotificationManager;
 
 /**
  * Command interface for scheduled event publishing
+ * Concrete implementation of ScheduledEvent
  */
 public class PublishEvent implements ScheduledEvent {
     private final Event event;
