@@ -173,4 +173,12 @@ public class NotificationManager implements EventPublisher {
         List<SubscriberInfo> subscriberList = subscribers.get(eventType);
         return subscriberList != null ? subscriberList.size() : 0;
     }
+
+    /**
+     * Clear all subscribers
+     */
+    public void clearSubscribers() {
+        subscribers.clear();
+        System.out.println("All subscribers cleared");
+    }
 }
