@@ -15,14 +15,14 @@ class WorkingHoursFilterTest {
 
     @BeforeEach
     void setUp() {
-        workingHoursFilter = new WorkingHoursFilter(LocalTime.of(9, 0), LocalTime.of(17, 0)); // 9 AM to 5 PM
+        workingHoursFilter = new WorkingHoursFilter(LocalTime.of(8, 0), LocalTime.of(18, 0)); // 8 AM to 6 PM
     }
 
     @Test
     @DisplayName("Should create filter with start and end times")
     void shouldCreateFilterWithStartAndEndTimes() {
-        assertEquals(LocalTime.of(9, 0), workingHoursFilter.getStartTime());
-        assertEquals(LocalTime.of(17, 0), workingHoursFilter.getEndTime());
+        assertEquals(LocalTime.of(8, 0), workingHoursFilter.getStartTime());
+        assertEquals(LocalTime.of(18, 0), workingHoursFilter.getEndTime());
     }
 
     @Test
