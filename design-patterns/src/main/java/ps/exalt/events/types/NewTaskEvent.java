@@ -1,6 +1,7 @@
 package ps.exalt.events.types;
 
 import ps.exalt.events.CommonEvent;
+import ps.exalt.events.MyData;
 import ps.exalt.events.enums.EventType;
 import ps.exalt.events.enums.Priority;
 
@@ -10,7 +11,7 @@ public class NewTaskEvent extends CommonEvent {
     private final String description;
 
     public NewTaskEvent(String taskName, String assignee, String description, Priority priority) {
-        super(EventType.TASK, priority, new TaskData(taskName, assignee, description));
+        super(EventType.TASK, priority, new TaskData(2L, taskName, assignee, description));
         this.taskName = taskName;
         this.assignee = assignee;
         this.description = description;
@@ -35,13 +36,15 @@ public class NewTaskEvent extends CommonEvent {
 
     /**
      * DTO for task information
+     * ID must be a Long
      */
-    public static class TaskData {
+    public static class TaskData extends MyData<Long> {
         private final String name;
         private final String assignee;
         private final String description;
 
-        public TaskData(String name, String assignee, String description) {
+        public TaskData(Long id, String name, String assignee, String description) {
+            super(id);
             this.name = name;
             this.assignee = assignee;
             this.description = description;

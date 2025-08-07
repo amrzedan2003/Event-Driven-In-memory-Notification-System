@@ -8,9 +8,9 @@ public abstract class CommonEvent implements Event {
     private final LocalDateTime timestamp;
     private final EventType eventType;
     private final Priority priority;
-    private final Object data;
+    private final MyData<?> data;
 
-    protected CommonEvent(EventType eventType, Priority priority, Object data) {
+    protected CommonEvent(EventType eventType, Priority priority, MyData<?> data) {
         this.timestamp = LocalDateTime.now();
         this.eventType = eventType;
         this.priority = priority;
@@ -33,7 +33,7 @@ public abstract class CommonEvent implements Event {
     }
 
     @Override
-    public Object getData() {
+    public MyData<?> getData() {
         return data;
     }
 
